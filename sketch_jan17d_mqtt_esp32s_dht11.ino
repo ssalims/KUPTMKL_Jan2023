@@ -129,18 +129,19 @@ void setup() {
 
 void loop() {
 
-//////////////
+//////////////////////////////////////////////////////////////////////
 float h = dht.readHumidity();
 // Read temperature as Celsius (the default)
 float t = dht.readTemperature();
 // Read temperature as Fahrenheit (isFahrenheit = true)
 float f = dht.readTemperature(true);
-//////////////
-
-char fahrenheitValue[15],celciusValue[15], humidValue[15];
-  dtostrf(f, 4, 2, fahrenheitValue); // convert float to char 
-  dtostrf(h, 4, 2, humidValue); // convert float to char 
-  dtostrf(t, 4, 2, celciusValue); // convert float to char 
+ //////////////////////////////////////////////////////////////////////
+ // convert float to char 
+  char fahrenheitValue[15],celciusValue[15], humidValue[15];
+  dtostrf(f, 4, 2, fahrenheitValue); 
+  dtostrf(h, 4, 2, humidValue); 
+  dtostrf(t, 4, 2, celciusValue); 
+ //////////////////////////////////////////////////////////////////////
 
   if (!client.connected()) {
     reconnect();
@@ -155,6 +156,7 @@ char fahrenheitValue[15],celciusValue[15], humidValue[15];
     Serial.print("Publish message: ");
     //Serial.println(msg);
     //client.publish(this_topic, msg); //send to Aedes Broker
+    //To publish to Aedes broker
     client.publish("stationA/celc", celciusValue); 
     client.publish("stationA/fah", fahrenheitValue);
     client.publish("stationA/humid", humidValue); 
@@ -164,7 +166,8 @@ char fahrenheitValue[15],celciusValue[15], humidValue[15];
     Serial.print(F("%  Temperature: "));
     Serial.print(t);
     Serial.print(F("°C "));
-    Serial.println(f);
+    Serial.print(f);
+    Serial.println(F("°F "));
 
   }
   
