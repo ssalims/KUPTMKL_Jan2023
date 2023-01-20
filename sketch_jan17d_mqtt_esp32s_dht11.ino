@@ -32,11 +32,11 @@ NODE-RED with ESP32s & DHT11
 DHT dht(DHTPIN, DHTTYPE);
 
 //  WiFi information
-const char* ssid = "IP7+";//"........";
-const char* password = "12345678a";//"........";
+const char* ssid = "........";
+const char* password = "........";
 
 // MQTT Broker information
-const char* mqtt_server = "172.20.10.2";//"192.168.0.166"; // // MQTT's IP Address
+const char* mqtt_server = "172.20.10.2";//"192.168.0.166"; // // Laptop @ MQTT's IP Address
 const int mqtt_port = 1883; // MQTT's port
 const char *this_topic = "sensor1"; //Topic or ID for this microcontroller
 const char *server_topic = "server"; //Topic or ID for server
